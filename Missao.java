@@ -2,42 +2,86 @@ package POO.AtividadeAval;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Missao extends GerenciadorExploracaoEspacial{
+import java.util.ArrayList;
+import java.util.List;
 
-    private int ID;
-    private int Capacidade;
-    private int Data;
-    private static int proximoIdMissao;
-    private String nome;
-    private String objeto;
-    private String Tipo;
+public class Missao extends GerenciadorExploracaoEspacial {
+    private String objetivo;
     private String dataLancamento;
     private String status;
-    private String Especialidade;
-    private String missao;
-  
+    private NaveEspacial nave;
+    private List<Astronauta> astronautas;
 
-
-public static void adicionarMissao(String nome, String objetivo, String dataLancamento, String  status) {
-    missoes.add(new String[]{String.valueOf(proximoIdMissao++), nome, objetivo,
-            dataLancamento, status, "N/A", "N/A"}); // ID Nave, ID Astronautas
-            System.out.println("Missão " + nome + " adicionada com sucesso!"); }
-    
-        public static void listarMissoes () {
-            System.out.println("\n--- Lista de Missões ---");
-            String[][] missoes;
-            if (missoes.isEmpty()) {
-                System.out.println("Nenhuma missão cadastrada.");
-                return;
-            }
-            for (String[] missao : missoes) {
-                System.out.println("ID: " + missao[0] + ", Nome: " + missao[1] + ", Objetivo: " +
-                        missao[2] + ", Data: " + missao[3] + ", Status: " + missao[4] + ", Nave: " + missao[5] + ", Astronautas: "
-
-                        + missao[6]);
-            }
+    public Missao(int id, String nome, String objetivo, String dataLancamento, String status) {
+        super(id, nome);
+        this.objetivo = objetivo;
+        this.dataLancamento = dataLancamento;
+        this.status = status;
+        this.astronautas = new ArrayList<>();
     }
 
+    public String getObjetivo() {
+        return objetivo;
+    }
 
+    public String getDataLancamento() {
+        return dataLancamento;
+    }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setObjetivo(String objetivo) {
+        this.objetivo = objetivo;
+    }
+
+    public void setDataLancamento(String dataLancamento) {
+        this.dataLancamento = dataLancamento;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void associarNave(NaveEspacial nave) {
+        this.nave = nave;
+    }
+
+    public void associarAstronauta(Astronauta astronauta) {
+        this.astronautas.add(astronauta);
+    }
+
+    public void atualizarStatus(String novoStatus) {
+        this.status = novoStatus;
+    }
+
+    @Override
+    public void exibirInformacoes() {
+        System.out.print("ID: " + getId()
+                + ", Nome: " + getNome()
+                + ", Objetivo: " + objetivo
+                + ", Data: " + dataLancamento
+                + ", Status: " + status);
+
+        if (nave == null) {
+            System.out.print(", Nave: N/A");
+        } else {
+            System.out.print(", Nave: " + nave.getNome());
+        }
+
+        if (astronautas.isEmpty()) {
+            System.out.println(", Astronautas: N/A");
+        } else {
+            System.out.print(", Astronautas: ");
+            for (int i = 0; i < astronautas.size(); i++) {
+                System.out.print(astronautas.get(i).getNome());
+
+                if (i < astronautas.size() - 1) {
+                    System.out.print(", ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }

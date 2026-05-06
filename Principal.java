@@ -1,13 +1,14 @@
-package POO.AtividadeAval;
+package POO.AtividadeAval.Abstracao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Principal {//a "prateleira" alterado do arrayList<>() e list<String[]>
-    private static List<Missao> missoes = new ArrayList<>();
-    private static List<NaveEspacial> naves = new ArrayList<>();
-    private static List<Astronauta> astronautas = new ArrayList<>();
+    private static List<POO.AtividadeAval.Missao> missoes = new ArrayList<>();
+    private static List<POO.AtividadeAval.NaveEspacial> naves = new ArrayList<>();
+    private static List<POO.AtividadeAval.Astronauta> astronautas = new ArrayList<>();
 
     private static int proximoIdMissao = 1;
     private static int proximoIdNave = 1;
@@ -139,19 +140,19 @@ public class Principal {//a "prateleira" alterado do arrayList<>() e list<String
     }
 
     public static void adicionarMissao(String nome, String objetivo, String dataLancamento, String status) {
-        Missao missao = new Missao(proximoIdMissao++, nome, objetivo, dataLancamento, status);
+        POO.AtividadeAval.Missao missao = new POO.AtividadeAval.Missao(proximoIdMissao++, nome, objetivo, dataLancamento, status);
         missoes.add(missao);
         System.out.println("Missão " + nome + " adicionada com sucesso!");
     }
 
     public static void adicionarNave(String nome, String tipo, int capacidade) {
-        NaveEspacial nave = new NaveEspacial(proximoIdNave++, nome, tipo, capacidade);
+        POO.AtividadeAval.NaveEspacial nave = new POO.AtividadeAval.NaveEspacial(proximoIdNave++, nome, tipo, capacidade);
         naves.add(nave);
         System.out.println("Nave " + nome + " adicionada com sucesso!");
     }
 
     public static void adicionarAstronauta(String nome, String especialidade) {
-        Astronauta astronauta = new Astronauta(proximoIdAstronauta++, nome, especialidade);
+        POO.AtividadeAval.Astronauta astronauta = new POO.AtividadeAval.Astronauta(proximoIdAstronauta++, nome, especialidade);
         astronautas.add(astronauta);
         System.out.println("Astronauta " + nome + " adicionado com sucesso!");
     }
@@ -164,7 +165,7 @@ public class Principal {//a "prateleira" alterado do arrayList<>() e list<String
             return;
         }
 
-        for (Missao missao : missoes) {
+        for (POO.AtividadeAval.Missao missao : missoes) {
             missao.exibirInformacoes();
         }
     }
@@ -177,7 +178,7 @@ public class Principal {//a "prateleira" alterado do arrayList<>() e list<String
             return;
         }
 
-        for (NaveEspacial nave : naves) {
+        for (POO.AtividadeAval.NaveEspacial nave : naves) {
             nave.exibirInformacoes();
         }
     }
@@ -190,14 +191,14 @@ public class Principal {//a "prateleira" alterado do arrayList<>() e list<String
             return;
         }
 
-        for (Astronauta astronauta : astronautas) {
+        for (POO.AtividadeAval.Astronauta astronauta : astronautas) {
             astronauta.exibirInformacoes();
         }
     }
 
     public static void associarNaveAMissao(int idMissao, int idNave) {
-        Missao missao = buscarMissaoPorId(idMissao);
-        NaveEspacial nave = buscarNavePorId(idNave);
+        POO.AtividadeAval.Missao missao = buscarMissaoPorId(idMissao);
+        POO.AtividadeAval.NaveEspacial nave = buscarNavePorId(idNave);
 
         if (missao != null && nave != null) {
             missao.associarNave(nave);
@@ -208,8 +209,8 @@ public class Principal {//a "prateleira" alterado do arrayList<>() e list<String
     }
 
     public static void associarAstronautaAMissao(int idMissao, int idAstronauta) {
-        Missao missao = buscarMissaoPorId(idMissao);
-        Astronauta astronauta = buscarAstronautaPorId(idAstronauta);
+        POO.AtividadeAval.Missao missao = buscarMissaoPorId(idMissao);
+        POO.AtividadeAval.Astronauta astronauta = buscarAstronautaPorId(idAstronauta);
 
         if (missao != null && astronauta != null) {
             missao.associarAstronauta(astronauta);
@@ -220,7 +221,7 @@ public class Principal {//a "prateleira" alterado do arrayList<>() e list<String
     }
 
     public static void atualizarStatusMissao(int idMissao, String novoStatus) {
-        Missao missao = buscarMissaoPorId(idMissao);
+        POO.AtividadeAval.Missao missao = buscarMissaoPorId(idMissao);
 
         if (missao != null) {
             missao.atualizarStatus(novoStatus);
@@ -230,7 +231,7 @@ public class Principal {//a "prateleira" alterado do arrayList<>() e list<String
         }
     }
 
-    private static Missao buscarMissaoPorId(int idMissao) {
+    private static POO.AtividadeAval.Missao buscarMissaoPorId(int idMissao) {
         for (Missao missao : missoes) {
             if (missao.getId() == idMissao) {
                 return missao;
@@ -240,7 +241,7 @@ public class Principal {//a "prateleira" alterado do arrayList<>() e list<String
         return null;
     }
 
-    private static NaveEspacial buscarNavePorId(int idNave) {
+    private static POO.AtividadeAval.NaveEspacial buscarNavePorId(int idNave) {
         for (NaveEspacial nave : naves) {
             if (nave.getId() == idNave) {
                 return nave;
@@ -250,7 +251,7 @@ public class Principal {//a "prateleira" alterado do arrayList<>() e list<String
         return null;
     }
 
-    private static Astronauta buscarAstronautaPorId(int idAstronauta) {
+    private static POO.AtividadeAval.Astronauta buscarAstronautaPorId(int idAstronauta) {
         for (Astronauta astronauta : astronautas) {
             if (astronauta.getId() == idAstronauta) {
                 return astronauta;

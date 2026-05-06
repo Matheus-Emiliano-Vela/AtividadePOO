@@ -1,7 +1,6 @@
-package POO.AtividadeAval;
+package POO.AtividadeAval.Abstracao;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Missao extends GerenciadorExploracaoEspacial {
@@ -9,14 +8,14 @@ public class Missao extends GerenciadorExploracaoEspacial {
     private String dataLancamento;
     private String status;
     private NaveEspacial nave;
-    private List<Astronauta> astronautas;
+    private final List<Astronauta> astronautas;
 
     public Missao(int id, String nome, String objetivo, String dataLancamento, String status) {
         super(id, nome);
         this.objetivo = objetivo;
         this.dataLancamento = dataLancamento;
         this.status = status;
-        this.astronautas = new ArrayList<>();
+        this.astronautas = new ArrayList<Astronauta>();
     }
 
     public String getObjetivo() {
@@ -44,12 +43,10 @@ public class Missao extends GerenciadorExploracaoEspacial {
     }
 
     public void associarNave(NaveEspacial nave) {
-        this.nave = nave;
-    }
+        this.nave = nave;}
 
     public void associarAstronauta(Astronauta astronauta) {
-        this.astronautas.add(astronauta);
-    }
+        this.astronautas.add((Astronauta) astronautas);}
 
     public void atualizarStatus(String novoStatus) {
         this.status = novoStatus;

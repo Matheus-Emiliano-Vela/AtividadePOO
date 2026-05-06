@@ -1,10 +1,10 @@
-package POO.AtividadeAval;
+package POO.AtividadeAval.Abstracao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class GerenciadorExploracaoEspacial {
+public abstract class GerenciadorExploracaoEspacial {
     private int id;
     private String nome;
 
@@ -25,7 +25,7 @@ public class GerenciadorExploracaoEspacial {
         this.nome = nome;
     }
 
-    public void exibirInformacoes() {
+    public void exibirInformacoes(){
         System.out.println("ID: " + id + ", Nome: " + nome);
     }
 }

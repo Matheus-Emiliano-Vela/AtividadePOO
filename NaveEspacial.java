@@ -1,4 +1,4 @@
-package POO.AtividadeAval;
+package POO.AtividadeAval.Abstracao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,9 +32,6 @@ public class NaveEspacial extends GerenciadorExploracaoEspacial {
 
     @Override
     public void exibirInformacoes() {
-        System.out.println("ID: " + getId()
-                + ", Nome: " + getNome()
-                + ", Tipo: " + tipo
-                + ", Capacidade: " + capacidade);
+       super.exibirInformacoes();
     }
 }

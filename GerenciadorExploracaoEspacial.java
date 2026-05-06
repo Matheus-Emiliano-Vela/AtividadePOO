@@ -1,19 +1,30 @@
+package POO.AtividadeAval;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 public class GerenciadorExploracaoEspacial {
+    private int id;
+    private String nome;
 
-// Simula um banco de dados de missões: [ID, Nome, Objetivo, DataLançamento,
-  //status]
-    ;
-    private int ID, Capacidade, Data;
-    private String nome, objeto, Tipo,dataLancamento, status, Especialidades;
+    public GerenciadorExploracaoEspacial(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
 
+    public int getId() {
+        return id;
+    }
 
-    private static List<String[]> missoes = new ArrayList<>(); // Simula um banco de dados de
-    naves: [ID, Nome, Tipo, Capacidade]
-    private static List<String[]> naves = new
-            ArrayList<>();
-    // Simula um banco de dados de astronautas: [ID, Nome, Especialidade]
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void exibirInformacoes() {
+        System.out.println("ID: " + id + ", Nome: " + nome);
+    }
 }
-

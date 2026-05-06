@@ -1,5 +1,7 @@
 package POO.AtividadeAval;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 public class Astronauta extends GerenciadorExploracaoEspacial {
     private String especialidade;
 
@@ -18,8 +20,6 @@ public class Astronauta extends GerenciadorExploracaoEspacial {
 
     @Override
     public void exibirInformacoes() {
-        System.out.println("ID: " + getId()
-                + ", Nome: " + getNome()
-                + ", Especialidade: " + especialidade);
+        System.out.println("ID: " + getId() + ", Nome: " + getNome() + ", Especialidade: " + especialidade);
     }
 }

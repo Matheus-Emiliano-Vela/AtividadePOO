@@ -1,5 +1,9 @@
 package POO.AtividadeAval;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class NaveEspacial extends GerenciadorExploracaoEspacial {
     private String tipo;
     private int capacidade;

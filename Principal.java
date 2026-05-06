@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Principal {//a "prateleira" alterado do arrayList<>() e list<String[]>
-    private static final List<Missao> missoes = new ArrayList<>();
+    private static List<Missao> missoes = new ArrayList<>();
     private static List<NaveEspacial> naves = new ArrayList<>();
     private static List<Astronauta> astronautas = new ArrayList<>();
 
